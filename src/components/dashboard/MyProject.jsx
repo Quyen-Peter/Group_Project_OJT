@@ -22,9 +22,9 @@ const folders = [
 
 const MyProject = () => {
     return (
-        <ScrollView style={Styles.Container} showsVerticalScrollIndicator={false}>
-            <View >
 
+        <View style={Styles.Container}>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{ flexDirection: 'row', marginTop: 20, marginLeft: 26, marginBottom: 20, }}>
                     <View>
                         <Picker style={Styles.Picker}>
@@ -43,7 +43,7 @@ const MyProject = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View style= {{ marginLeft: 60, }}>
+                <View style={{ marginLeft: 60, }}>
                     <View style={Styles.ContaierItem}>
                         {folders.map((foder) => (
                             <View style={Styles.Item}>
@@ -61,16 +61,19 @@ const MyProject = () => {
                         ))}
                     </View>
                 </View>
-            </View>
-        </ScrollView>
+            </ScrollView>
+        </View >
+
     );
 };
 
 const Styles = StyleSheet.create({
     Container: {
-        flex: 1,
+        width: "100%",
+        height: "100%",
         backgroundColor: "#f8f8f8",
         borderRadius: 10,
+        marginBottom: 115,
     },
     Picker: {
         width: 120,

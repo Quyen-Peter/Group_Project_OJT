@@ -140,7 +140,7 @@ const dashTwo = () => {
 
 const styles = StyleSheet.create({
 
-  container: { flex: 1, backgroundColor: "#f8f8f8", padding: 0 },
+  container: { width: "100%", height: "100%", backgroundColor: "#f8f8f8", padding: 0 , borderRadius: 10,},
   header: { flexDirection: "row", justifyContent: "space-between", marginBottom: 10, alignItems: "center" ,marginLeft:20},
   categoryContainer: { flexDirection: "row", flex: 1 },
   categoryButton: { paddingHorizontal: 10, paddingVertical: 5 },

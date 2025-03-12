@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Image, ScrollView, FlatList, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, ScrollView, FlatList, TouchableOpacity, Dimensions } from "react-native";
 import React from "react";
 import Background from "../../../assets/dashboardImage/background.png";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -28,6 +28,8 @@ const recentDesigns = [
   { id: '13', imageUrl: 'https://kyluc.vn/userfiles/upload/images/modules/news/2016/7/11/0_hinh-anh-thien-nhien-dep-nhat-th-gioi.jpg', name: 'Handle', edited: '5', size: '4.92 MB', lastViewed: '5 days ago' },
   { id: '14', imageUrl: 'https://kyluc.vn/userfiles/upload/images/modules/news/2016/7/11/0_hinh-anh-thien-nhien-dep-nhat-th-gioi.jpg', name: 'Panel Curtain', edited: '2', size: '4.76 MB', lastViewed: '5 days ago' },
 ];
+
+const { width, height } = Dimensions.get("window");
 
 const DashboardMain = () => {
   return (
@@ -147,7 +149,6 @@ const DashboardMain = () => {
                   <TouchableOpacity style={[styles.Colum, { flex: 1 }]}>
                     <AntDesign name="ellipsis1" size={20} />
                   </TouchableOpacity>
-
                 </View>
               )}
             />
@@ -162,7 +163,8 @@ const DashboardMain = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: '100%',
+    height: '100%',
     backgroundColor: "#F5F5F5",
     borderRadius: 10,
   },
@@ -170,7 +172,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     height: 180,
     justifyContent: "center",
-    width: 1290,
+    width: '106.8%',
     paddingLeft: 26,
     paddingTop: 50,
 

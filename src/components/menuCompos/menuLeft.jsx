@@ -5,41 +5,29 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import Feather from '@expo/vector-icons/Feather';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
-import Home from "../dashboard/dashboardMain";
-import Discovery from "../dashboard/dashTwo";
-import MyProject from "../dashboard/MyProject";
-import TrashList from "../dashboard/TrashList";
-import AiEdit from "../generate/aiEdit";
 
+const menuLeft = ({onScreenChange, activeScreen }) => {
 
-
-const screenWidth = Dimensions.get("window").width;
-const screenHeight = Dimensions.get("window").height;
-
-const menuLeft = () => {
-
-
-  const [activeScreen, setActiveScreen] = useState("Home");
   return (
     <View style={styles.container}>
-      <View style={styles.menuContainer}>
+      <View>
         {/* Group 1 */}
 
-        <TouchableOpacity style={[styles.menuItem, activeScreen === "Home" && styles.backgroundButton]} onPress={() => setActiveScreen("Home")}>
+        <TouchableOpacity style={[styles.menuItem, activeScreen === "Home" && styles.backgroundButton]} onPress={() => onScreenChange("Home")}>
           <AntDesign name="home" size={22} color="black" />
           <Text style={styles.text}>Home</Text>
         </TouchableOpacity>
 
-        < TouchableOpacity style={[styles.menuItem, activeScreen === "AiEdit" && styles.backgroundButton]} onPress={() => setActiveScreen("AiEdit")}>
+        < TouchableOpacity style={[styles.menuItem, activeScreen === "AiEdit" && styles.backgroundButton]} onPress={() => onScreenChange("AiEdit")}>
           <Text style={styles.text}>New</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.menuItem, activeScreen === "Discovery" && styles.backgroundButton]} onPress={() => setActiveScreen("Discovery")}>
+        <TouchableOpacity style={[styles.menuItem, activeScreen === "Discovery" && styles.backgroundButton]} onPress={() => onScreenChange("Discovery")}>
           <FontAwesome name="safari" size={19} color="black" />
           <Text style={styles.text}>Discovery</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.menuItem, activeScreen === "MyProject" && styles.backgroundButton]} onPress={() => setActiveScreen("MyProject")}>
+        <TouchableOpacity style={[styles.menuItem, activeScreen === "MyProject" && styles.backgroundButton]} onPress={() => onScreenChange("MyProject")}>
           <Feather name="folder" size={20} color="black" />
           <Text style={styles.text}>My Project</Text>
         </TouchableOpacity>
@@ -51,7 +39,7 @@ const menuLeft = () => {
 
         {/* Group 2 */}
 
-        <TouchableOpacity style={[styles.menuItem, activeScreen === "TrashList" && styles.backgroundButton]} onPress={() => setActiveScreen("TrashList")}>
+        <TouchableOpacity style={[styles.menuItem, activeScreen === "TrashList" && styles.backgroundButton]} onPress={() => onScreenChange("TrashList")}>
           <Feather name="trash-2" size={20} color="black" />
           <Text style={styles.text}>Trash</Text>
         </TouchableOpacity>
@@ -87,16 +75,6 @@ const menuLeft = () => {
           </View>
         </View>
       </View>
-
-      {/* Content View */}
-      <View style={styles.contentContainer}>
-        {activeScreen === "Home" && <Home />}
-        {activeScreen === "Discovery" && <Discovery />}
-        {activeScreen === "MyProject" && <MyProject />}
-        {activeScreen === "TrashList" && <TrashList />}
-        {activeScreen === "AiEdit" && <AiEdit />}
-      </View>
-
     </View>
   );
 }
@@ -106,7 +84,7 @@ export default menuLeft;
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    flexDirection: "row",
+    height: "100%",
   },
   menuItem: {
     flexDirection: "row", // Icon and text in the same row
@@ -200,13 +178,5 @@ const styles = StyleSheet.create({
     height: 40,
     paddingLeft: 15,
     borderRadius: 15,
-  },
-  menuContainer: {
-    width: screenWidth * 0.2, // Chiếm 20% màn hình
-  },
-  contentContainer: {
-    width: screenWidth * 0.773, // Chiếm 75% màn hình
-    height: screenHeight * 0.89, // Giữ tỷ lệ chiều cao
-    marginLeft: 20,
   },
 });

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Picker } from "@react-native-picker/picker";
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import TrashColum from "../dashboard/TrashColum";
 
 const designs = [
     { id: '1', imageUrl: 'https://kyluc.vn/userfiles/upload/images/modules/news/2016/7/11/0_hinh-anh-thien-nhien-dep-nhat-th-gioi.jpg', name: 'The house', edited: '1', size: '1 GB', lastViewed: 'N/A' },
@@ -56,33 +56,37 @@ const TrashList = () => {
 
     return (
         <View style={Style.Container}>
-            <View style={{ flexDirection: 'row', marginTop: 20, marginLeft: 26, marginBottom: 20,}}>
-                <View>
-                    <Picker style={Style.Picker} onValueChange={onChangeSortValue} selectedValue={sortData} >
-                        <Picker.Item label="Sort: Newest first" value="newest" />
-                        <Picker.Item label="Sort: Oldest first" value="oldest" />
-                    </Picker>
-                </View>
-                <View>
-                    <TouchableOpacity style={[Style.borderIconAntDesign, { marginLeft: 910 }]} onPress={() => setStypeScreen("Row")}>
-                        <AntDesign name="bars" size={27} />
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    <TouchableOpacity style={[Style.borderIconAntDesign, { marginLeft: 20, paddingTop: 3, paddingLeft: 3, }]} onPress={() => setStypeScreen("Colum")}>
-                        <AntDesign name="appstore-o" size={22} />
-                    </TouchableOpacity>
-                </View>
+            <View style={{ flexDirection: 'row', marginTop: 20, marginLeft: 26,  justifyContent: "space-between",}}>
+                
+                    <View>
+                        <Picker style={Style.Picker} onValueChange={onChangeSortValue} selectedValue={sortData} >
+                            <Picker.Item label="Sort: Newest first" value="newest" />
+                            <Picker.Item label="Sort: Oldest first" value="oldest" />
+                        </Picker>
+                    </View>
+                    <View style={{ flexDirection: "row", marginRight: 26}}>
+                        <View>
+                            <TouchableOpacity style={[Style.borderIconAntDesign, {  }]} onPress={() => setStypeScreen("Row")}>
+                                <AntDesign name="bars" size={27} />
+                            </TouchableOpacity>
+                        </View>
+                        <View>
+                            <TouchableOpacity style={[Style.borderIconAntDesign, { marginLeft: 20, paddingTop: 3, paddingLeft: 3, }]} onPress={() => setStypeScreen("Colum")}>
+                                <AntDesign name="appstore-o" size={22} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    
             </View>
 
-            <View >
+            <View style={{ width: "100%", marginTop: 20,}}>
                 {stypeScreen === "Row" && (
-                    <View style={{height: 555,}}>
+                    <View style={{height: "62%"}}>
                         <TrastRow data={data} />
                     </View>
                 )}
                 {stypeScreen === "Colum" && (
-                    <View style={{height: 555, marginLeft: 26,}}>
+                    <View style={{height: "62%"}}>
                         <TrashColum data={data} />
                     </View>
                 )}
@@ -96,7 +100,7 @@ const TrashList = () => {
 const TrastRow = ({ data }) => {
     return (
         <ScrollView showsVerticalScrollIndicator={false} >
-            <View style={{ marginLeft: 26, marginBottom: 10,}}>
+            <View style={{ marginLeft: 26, marginBottom: 10, }}>
                 <View style={Style.HeaderTable}>
                     <View style={[Style.Colum, { flex: 6 }]}>
                         <Text style={Style.TextHeaderTable}>Name</Text>
@@ -145,27 +149,13 @@ const TrastRow = ({ data }) => {
     )
 }
 
-const TrashColum = ({ data }) => {
-    return (
-        <ScrollView showsVerticalScrollIndicator={false} >
-            <View style={Style.ContaierItem}>
-                {data.map((Item) => (
-                    <View style={Style.Item}>
-                        <Image source={{ uri: Item.imageUrl }} style={Style.ImageItem} />
-                        <Text style={Style.TextName}>{Item.name}</Text>
-                        <Text style={Style.TextDay}>Edited {Item.edited} days ago</Text>
-                    </View>
-                ))}
-            </View>
-        </ScrollView>
-    )
-}
 
 
 
 const Style = StyleSheet.create({
     Container: {
-        flex: 1,
+        width: '100%',
+        height: '100%',
         backgroundColor: "#f8f8f8",
         borderRadius: 10,
     },
@@ -216,7 +206,7 @@ const Style = StyleSheet.create({
     ContaierItem: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        marginBottom: 20,
+        marginBottom: 10,
     },
     Item: {
         width: '25%',
