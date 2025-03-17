@@ -25,22 +25,24 @@ const MyProject = () => {
 
         <View style={Styles.Container}>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <View style={{ flexDirection: 'row', marginTop: 20, marginLeft: 26, marginBottom: 20, }}>
+                <View style={{ flexDirection: 'row', marginTop: 20, marginLeft: 26, marginBottom: 20, justifyContent: "space-between" }}>
                     <View>
                         <Picker style={Styles.Picker}>
                             <Picker.Item label="Sort: Newest first" value="newest" />
                             <Picker.Item label="Sort: Oldest first" value="oldest" />
                         </Picker>
                     </View>
-                    <View>
-                        <TouchableOpacity style={[Styles.borderIconAntDesign, { marginLeft: 910 }]}>
-                            <AntDesign name="bars" size={27} />
-                        </TouchableOpacity>
-                    </View>
-                    <View>
-                        <TouchableOpacity style={[Styles.borderIconAntDesign, { marginLeft: 20, paddingTop: 3, paddingLeft: 3, }]}>
-                            <AntDesign name="appstore-o" size={22} />
-                        </TouchableOpacity>
+                    <View style={{ flexDirection: "row", marginRight: 26}}>
+                        <View>
+                            <TouchableOpacity style={Styles.borderIconAntDesign}>
+                                <AntDesign name="bars" size={27} />
+                            </TouchableOpacity>
+                        </View>
+                        <View>
+                            <TouchableOpacity style={[Styles.borderIconAntDesign, { marginLeft: 20, paddingTop: 3, paddingLeft: 3, }]}>
+                                <AntDesign name="appstore-o" size={22} />
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
                 <View style={{ marginLeft: 60, }}>

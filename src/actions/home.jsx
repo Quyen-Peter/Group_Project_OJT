@@ -24,30 +24,30 @@ const home = () => {
                <View style={styles.contentContainer}>
                     <MenuLeft onScreenChange={handleScreenChange} activeScreen={activeScreen} />
 
-                    <View style={{ width: "100%", height: "100%" }}>
+                    <View style={{ flex: 1 }}>
                          {activeScreen === "Home" && (
-                              <View style={{ width: "80%", height: "38.6%" }} >
+                              <View style={{ width: "99%", height: "38.6%" }} >
                                    <Home />
                               </View>
                          )}
                          {activeScreen === "AiEdit" && (
-                              <View style={{ width: "80%", height: "100%" }}>
+                              <View style={{ width: "99%", height: "100%" }}>
                                    <AiEdit />
                               </View>
                          )}
                          {activeScreen === "Discovery" && (
-                              <View style={{ width: "80%", height: "52.5%" }}>
+                              <View style={{ width: "99%", height: "52.5%" }}>
                                    <Discovery />
                               </View>
 
                          )}
                          {activeScreen === "MyProject" && (
-                              <View style={{ width: "80%", height: "100%" }}>
+                              <View style={{ width: "99%", height: "100%" }}>
                                    <MyProject />
                               </View>
                          )}
                          {activeScreen === "TrashList" && (
-                              <View style={{width: "80%", height: "65%"}}>
+                              <View style={{width: "99%", height: "65%"}}>
                                    <TrashList/>
                               </View>
                          )}
